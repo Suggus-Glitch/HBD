@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎉</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .fade {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex flex-col items-center justify-center text-white">
+
+<!--Navigasi awal angjay-->
+<div class="flex gap-2 mb-6 flex-wrap justify-center">
+  <button onclick="showPage('fb')" class="px-4 py-2 bg-blue-600 text-white rounded-full">Facebook</button>
+  <button onclick="showPage('wa')" class="px-4 py-2 bg-green-500 text-white rounded-full">WhatsApp</button>
+  <button onclick="showPage('ig')" class="px-4 py-2 bg-pink-500 text-white rounded-full">Instagram</button>
+  <button onclick="showPage('sp')" class="px-4 py-2 bg-green-700 text-white rounded-full">Spotify</button>
+  <button onclick="showPage('vs')" class="px-4 py-2 bg-gray-700 text-white rounded-full">VS Code</button>
+</div>
+
+<!--Kontener brum brum-->
+<div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-4 fade">
+
+<!--LOCK SCREEN-->
+<div id="lock" class="page">
+
+  <div class="relative h-[420px] rounded-2xl overflow-hidden">
+    <!-- Background blur -->
+    <div
+      class="absolute inset-0 bg-cover bg-center blur-sm scale-110"
+      style="background-image: url('PP\ ig\ rafa.jpg')">
+    </div>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-white/50 flex flex-col items-center justify-center text-center px-6">
+      <p class="text-xl font-semibold text-gray-3000 mb-2">
+        Masukkan sandi
+      </p>
+      <p class="text-sm text-gray-600 mb-4">
+        Hint: tanggal ulang tahun kamu bub
+      </p>
+
+      <input
+        id="pinInput"
+        type="password"
+        maxlength="8"
+        placeholder="••••"
+        class="w-40 text-center tracking-widest text-lg px-4 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
+
+      <p id="pinError" class="text-xs text-red-700 mt-2 hidden">
+        Awokawkowkoawk salah 😜 (tanggal lahir + 1)
+      </p>
+
+      <button
+        onclick="checkPin()"
+        class="mt-5 px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg active:scale-95 transition">
+        Buka 📱
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= WHATSAPP ================= -->
+<div id="wa" class="page hidden">
+  <div class="flex flex-col h-[420px]">
+    
+    <!-- HEADER WA -->
+    <div class="flex items-center gap-3 border-b pb-3 mb-2">
+      <img src="PP gweh.png"
+          class="w-10 h-10 rounded-full object-cover">
+      <div>
+        <p class="font-semibold text-gray-800">Bagus</p>
+        <p id="waStatus" class="text-xs text-gray-500">online</p>
+      </div>
+    </div>
+
+    <!-- CHAT -->
+    <div id="waChat" class="flex-1 overflow-y-auto space-y-2 pr-1"></div>
+
+    <!-- INPUT BAR -->
+    <div class="mt-2 flex items-center gap-2 border-t pt-2">
+      <span class="text-xl text-gray-500 px-2">😊</span>
+      <input
+        type="text"
+        placeholder="Ketik pesan"
+        disabled
+        class="flex-1 px-4 py-2 rounded-full bg-gray-100 text-sm text-gray-500"
+      />
+      <span class="text-xl text-gray-500 px-2">🎤</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- FACEBOOK -->
+<div id="fb" class="page hidden">
+  <h2 class="text-blue-600 font-bold mb-3">Facebook 🟦</h2>
+
+  <div class="border rounded-xl overflow-hidden bg-white shadow-sm">
+
+    <!-- HEADER -->
+    <div class="flex items-center gap-3 p-3">
+      <img src="pp fb rafa.jpg"
+          class="w-12 h-12 rounded-full object-cover">
+      <div>
+        <p class="text-black font-semibold">
+  Athmist
+  <span class="text-blue-600 font-semibold cursor-pointer">
+  · Ikuti
+  </span>
+</p>
+        <p class="text-xs text-gray-500">Baru saja · 🌍</p>
+      </div>
+    </div>
+
+    <!-- CAPTION -->
+    <div class="px-3 pb-3 text-gray-800">
+      🎉 Happy Birthday Rafa Hylmi Azzami 🎂<br>
+      Happy lvl up jadii 19 tahun bwahahaha~
+    </div>
+
+    <!-- FOTO POST -->
+    <img src="foto ikea 2.jpg" class="w-full object-cover">
+
+    <!-- FOOTER INFO -->
+    <div class="px-3 pt-2 text-sm text-gray-500 flex justify-between items-center">
+      <div id="fbReactions" class="flex items-center gap-1">
+  <!-- reaction akan muncul satu-satu lewat JS -->
+</div>
+      <div class="text-xs">
+        41 komentar · 38 Kali dibagikan · 22 rb Tayangan
+      </div>
+    </div>
+
+    <!-- ACTION BUTTON -->
+    <div class="border-t mt-2 flex justify-around text-gray-600 text-sm font-medium">
+      <button class="flex gap-1 py-2 w-full justify-center hover:bg-gray-100">👍 Suka</button>
+      <button class="flex gap-1 py-2 w-full justify-center hover:bg-gray-100">💬 Komentari</button>
+      <button class="flex gap-1 py-2 w-full justify-center hover:bg-gray-100">↪ Bagikan</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= INSTAGRAM ================= -->
+<div id="ig"
+     class="page hidden h-[600px] max-w-md mx-auto bg-white rounded-2xl shadow flex flex-col overflow-hidden">
+
+  <!-- SCROLL AREA -->
+  <div class="flex-1 overflow-y-auto">
+
+    <!-- PROFILE HEADER -->
+    <div class="px-4 pt-4 pb-3">
+      <div class="flex items-center gap-4">
+        <img src="PP ig rafa.jpg"
+             class="w-20 h-20 rounded-full object-cover border-2 border-gray-200">
+
+        <div class="flex-1">
+          <p class="font-semibold text-gray-900 text-base">hylmi.az</p>
+          <p class="text-sm text-gray-500">Hylmi</p>
+
+          <div class="flex gap-6 text-sm mt-2 text-gray-800">
+            <span><b>13</b> kiriman</span>
+            <span><b>234</b> pengikut</span>
+            <span><b>222</b> diikuti</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-sm text-gray-500 mt-2">
+        Diikuti oleh <b class="text-gray-700">nivyart_</b>,
+        <b class="text-gray-700">moullzz7</b> + 53 lainnya
+      </div>
+
+      <!-- BUTTON -->
+      <div class="flex gap-2 mt-4">
+        <button
+          class="flex-1 bg-gray-200 text-gray-800 py-2 rounded-full font-medium">
+          Edit profil
+        </button>
+        <button
+          class="flex-1 bg-gray-200 text-gray-800 py-2 rounded-full font-medium">
+          Lihat arsip
+        </button>
+      </div>
+    </div>
+
+    <!-- GRID FOTO -->
+    <div class="grid grid-cols-3 gap-[2px] bg-gray-200">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 2.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 3.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 4.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="osis 1.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="nonton 1.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="osis 2.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 5.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="nonton 2.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 8.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="yb 1.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="yb 3.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="yb 4.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="taman 2.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="nginep 1.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="taman 1.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto carry 2.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="nginep 2.jpg">
+      <img class="aspect-square object-cover hover:opacity-80 transition" src="foto carry 1.jpg">
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= SPOTIFY ================= -->
+<div id="sp" class="page hidden w-full bg-gradient-to-b from-emerald-700 to-black text-white rounded-3xl overflow-hidden">
+
+  <!-- HEADER -->
+  <div class="p-4 flex gap-4 items-center">
+    <!-- COVER PLAYLIST -->
+    <div class="w-28 aspect-square rounded-2xl overflow-hidden bg-emerald-600 shadow-lg flex items-center justify-center">
+      <img src="The Beatles.jpg" class="w-full h-full object-cover">
+    </div>
+
+    <!-- INFO -->
+    <div>
+      <p class="text-xs tracking-widest text-white/80">PLAYLIST</p>
+      <h1 class="text-2xl font-extrabold leading-tight mt-1">
+        Lagu Favorit<br>Kamu bub
+      </h1>
+      <p class="text-sm text-white/60 mt-1">
+        isinya ya lagu aja sih • 3 lagu
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTROL -->
+  <div class="px-4 pb-3 flex items-center gap-4">
+    <button onclick="playSong(0)"
+      class="bg-green-400 text-black w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-lg">
+      ▷
+    </button>
+    <span class="text-sm text-white/70">Putar semua</span>
+  </div>
+
+  <!-- LIST LAGU -->
+  <div class="px-4 pb-6 space-y-2 max-h-[55vh] overflow-y-auto">
+
+    <!-- ITEM -->
+    <div onclick="playSong(0)"
+      class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white/10 transition cursor-pointer">
+      <span class="w-4 text-sm text-white/50">1</span>
+      <img src="The Long and Winding Road.jpg" class="w-10 h-10 rounded-lg object-cover">
+      <div class="flex-1">
+        <p class="font-medium text-sm">The Long and Winding Road</p>
+        <p class="text-xs text-white/60">The Beatles</p>
+      </div>
+      <span class="text-xs text-white/50">5:15</span>
+    </div>
+
+    <div onclick="playSong(1)"
+      class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white/10 transition cursor-pointer">
+      <span class="w-4 text-sm text-white/50">2</span>
+      <img src="In My Life.jpg" class="w-10 h-10 rounded-lg object-cover">
+      <div class="flex-1">
+        <p class="font-medium text-sm">In My Life</p>
+        <p class="text-xs text-white/60">The Beatles</p>
+      </div>
+      <span class="text-xs text-white/50">4:57</span>
+    </div>
+
+    <div onclick="playSong(2)"
+      class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white/10 transition cursor-pointer">
+      <span class="w-4 text-sm text-white/50">3</span>
+      <img src="Strawberry Fields Forever.jpg" class="w-10 h-10 rounded-lg object-cover">
+      <div class="flex-1">
+        <p class="font-medium text-sm">Strawberry Fields Forever</p>
+        <p class="text-xs text-white/60">The Beatles</p>
+      </div>
+      <span class="text-xs text-white/50">4:12</span>
+    </div>
+
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="audioPlayer"></audio>
+
+</div>
+
+<!-- ================= VS CODE ================= -->
+<div id="vs"
+     class="page hidden h-[500px] max-w-md mx-auto
+            bg-white rounded-2xl shadow
+            flex flex-col overflow-hidden">
+
+  <!-- HEADER -->
+  <div class="px-5 py-4 border-b">
+    <p class="text-sm text-gray-400">Pesan Penting</p>
+    <h2 class="text-lg font-semibold text-red-800">
+      Dari Sugus~
+    </h2>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="flex-1 overflow-y-auto px-5 py-4 text-gray-700 leading-relaxed space-y-4 text-sm">
+
+    <p>
+      Sekali lagi Selamat ulang tahun ya Rafa...
+      Mungkin ada kesalahan klo ini dikirim sebelum hari ulang tahun lu,
+      tapi ya coba aja baca dulu hehe.
+    </p>
+
+    <p>
+      ni  gw cuma mau yapping sedikit, lebih tepatnya ngetik sih secara harfiah.
+      Jujur aja, sebenernya gw punya sedikit ketertarikan sama lu Rap.
+      Entah gimana jelasinnya, agak aneh juga sebenernya. Tpi gw cuma pengen ngomong biar lega aja.
+      Nggak perlu dipikirin harus bales apa atau gimana. Menurut gweh, cukup lu tau aja.
+      Toh mungkin ini juga cuma perasaan sekilas yang lewat, karena Gw terlalu seneng bisa ketemu someone who feels free to be hugged.
+    </p>
+
+    <p>
+      Gw sadar kok, kayaknya gw juga nggak bakal bisa terus-terusan suka sama lu dalam waktu yang lama. Ya orang sejenis juga sih, anjg.
+      di samping itu, gw ngerasa juga belum sepenuhnya bisa mahamin dan nerima sikap lu Rap. Cara komunikasi kita beda jauh banget jir. 
+      Dari situ gweh jadi tau sudut pandang orang baru, tapi di sisi lain, dengan cara komunikasi lu yang slow respon bet dan kadang dry text bet, gw jadi kepikiran, lu risih nggak sih?
+      Atau emang feeling nothing aja dalam pertemanan ini? Gw terbiasa ditreat dengan fast response dan komunikasi yang nggak dry sama temen-temen deket gw. Jadi pas gw deket sama lu, itu kerasa agak weird buat gw. 
+      Rasanya bukan kayak lagi jadi temen, lebih ke… cuma sebates kenal aja. Dari sudut pandang gw, itu kadang kerasa kayak kurang dihargai dalam pertemanan—kayak ditinggalin pelan-pelan.
+      Tpi gw juga sadar sih, itu cuma asumsi gweh azza. Bisa jadi emang itu murni sifat lu. Dan kalau emang begitu, yaa udah. Jangan ngerubah sesuatu yang pada dasarnya emang elu banget.
+      Gw cuma pengen jujur soal apa yang gw rasain, bukan buat nuntut atau nyalahin apa pun.
+    </p>
+
+    <p>
+      Dari situ gw juga ngerasa, kayaknya hubungan pertemanan kita bakal pelan-pelan renggang. 
+      Apalagi nanti lu juga bakal sibuk sama dunia kuliah, ketemu temen-temen baru, dan punya kehidupan yang beda lagi. 
+      Jadi ya… Gw ungkapin aja dari sekarang Wkwk. Semoga cepet dapet cewek ya Rap. Tolong klo udh dpet PJ-nya geprek.
+    </p>
+
+    <p>
+      Gweh gtw mw ngetik ap lagi hehe. Jadi yaudah, intinya itu aja.
+      Text ini sebenernya udh dibuat dari awal Januari tapi gua terlalu pengecut buat ngirimnya.
+    </p>
+
+    <p class="font-medium text-gray-900">
+      Thanks for being a cutie patootie~
+      Selamat ulang tahun, maaf kalau pesan ini sampe sebelum ulang tahun lu tiba.
+      oh iya thx udh ciptain tos paw paw wkwk
+    </p>
+
+  </div>
+</div>
+
+<script>
+/* ===== PAGE SWITCH ===== */
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+
+  const page = document.getElementById(id);
+  page.classList.remove('hidden');
+  page.classList.add('fade');
+
+  if (id === "wa") startWhatsApp();
+  if (id === "fb") showReactions();
+}
+
+function unlockPhone() {
+  document.getElementById("lock").classList.add("hidden");
+  showPage("fb");
+}
+
+// INI SANDI NYA
+const correctPin = "1111"; //
+
+function checkPin() {
+  const input = document.getElementById("pinInput");
+  const error = document.getElementById("pinError");
+
+  if (input.value === correctPin) {
+    error.classList.add("hidden");
+    unlockPhone();
+  } else {
+    error.classList.remove("hidden");
+    input.value = "";
+  }
+}
+
+/* ===== WHATSAPP TYPING EFFECT ===== */
+const waMessages = [
+  { text: "HOLA BUB !", from: "left" },
+  { text: "ya?", from: "right" },
+  { text: "Kebiasaan dry text banget ck", from: "left" },
+  { text: "hehe", from: "right" },
+  { text: "Selamat ulang tahun ya", from: "left" },
+  { text: "Semoga panjang umur, sehat selalu, makin pinter, makin ganteng, makin lucu wkwkkw... tetep jadi rapa yang tampilannya bloon ya, biar bisa dibully wkwkkw...", from: "left" },
+];
+
+function startWhatsApp() {
+  const chat = document.getElementById("waChat");
+  const status = document.getElementById("waStatus");
+
+  chat.innerHTML = "";
+  let index = 0;
+
+  function typeMessage() {
+    if (index >= waMessages.length) {
+      status.textContent = "online";
+      return;
+    }
+
+    const msg = waMessages[index];
+
+    if (msg.from === "left") {
+      status.textContent = "mengetik...";
+    }
+
+    const wrapper = document.createElement("div");
+    wrapper.className =
+      msg.from === "right"
+        ? "flex justify-end"
+        : "flex justify-start";
+
+    const bubble = document.createElement("div");
+    bubble.className =
+      "inline-block max-w-[75%] px-4 py-2 rounded-2xl fade " +
+      "break-words leading-relaxed " +
+      (msg.from === "right"
+        ? "bg-emerald-400 text-right"
+        : "bg-gray-500");
+
+    wrapper.appendChild(bubble);
+    chat.appendChild(wrapper);
+
+    let i = 0;
+    function typeChar() {
+  bubble.textContent += msg.text[i];
+  i++;
+
+  if (i < msg.text.length) {
+    setTimeout(typeChar, randomBetween(90, 100)); // speed ketik random
+  } else {
+    index++;
+    status.textContent = "online";
+
+    setTimeout(typeMessage, randomBetween(1000, 1200)); // jeda antar bubble
+  }
+}
+typeChar();
+
+  }
+
+  function randomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+  typeMessage();
+}
+
+function showReactions() {
+  const container = document.getElementById("fbReactions");
+  container.innerHTML = "";
+
+  const reactions = [
+    { emoji: "❤️", color: "bg-red-500" },
+    { emoji: "😂", color: "bg-yellow-400" },
+    { emoji: "😮", color: "bg-blue-500" }
+  ];
+
+  reactions.forEach((r, index) => {
+    setTimeout(() => {
+      const span = document.createElement("span");
+      span.className =
+        `${r.color} text-white text-xs rounded-full px-1 fade`;
+      span.textContent = r.emoji;
+      container.appendChild(span);
+    }, index * 400); // ⏱ delay antar reaction
+  });
+}
+
+const songs = [
+  "lagu1.mp3",
+  "lagu2.mp3",
+  "lagu3.mp3"
+];
+
+const audio = document.getElementById("audioPlayer");
+
+function playSong(index) {
+  if (audio.src !== songs[index]) {
+    audio.src = songs[index];
+  }
+  audio.play();
+}
+
+</script>
+
+</body>
+</html>
