@@ -19,7 +19,6 @@
 
 <body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex flex-col items-center justify-center text-white">
 
-<!--Navigasi awal angjay-->
 <div class="flex gap-2 mb-6 flex-wrap justify-center">
   <button onclick="showPage('fb')" class="px-4 py-2 bg-blue-600 text-white rounded-full">Facebook</button>
   <button onclick="showPage('wa')" class="px-4 py-2 bg-green-500 text-white rounded-full">WhatsApp</button>
@@ -28,20 +27,17 @@
   <button onclick="showPage('vs')" class="px-4 py-2 bg-gray-700 text-white rounded-full">VS Code</button>
 </div>
 
-<!--Kontener brum brum-->
 <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-4 fade">
 
-<!--LOCK SCREEN-->
 <div id="lock" class="page">
 
   <div class="relative h-[420px] rounded-2xl overflow-hidden">
-    <!-- Background blur -->
+
     <div
       class="absolute inset-0 bg-cover bg-center blur-sm scale-110"
       style="background-image: url('PP\ ig\ rafa.jpg')">
     </div>
 
-    <!-- Overlay -->
     <div class="absolute inset-0 bg-white/50 flex flex-col items-center justify-center text-center px-6">
       <p class="text-xl font-semibold text-gray-3000 mb-2">
         Masukkan sandi
@@ -69,14 +65,12 @@
       </button>
     </div>
   </div>
-
 </div>
 
-<!-- ================= WHATSAPP ================= -->
+
 <div id="wa" class="page hidden">
   <div class="flex flex-col h-[420px]">
     
-    <!-- HEADER WA -->
     <div class="flex items-center gap-3 border-b pb-3 mb-2">
       <img src="PP gweh.png"
           class="w-10 h-10 rounded-full object-cover">
@@ -86,10 +80,8 @@
       </div>
     </div>
 
-    <!-- CHAT -->
     <div id="waChat" class="flex-1 overflow-y-auto space-y-2 pr-1"></div>
 
-    <!-- INPUT BAR -->
     <div class="mt-2 flex items-center gap-2 border-t pt-2">
       <span class="text-xl text-gray-500 px-2">😊</span>
       <input
@@ -104,13 +96,11 @@
   </div>
 </div>
 
-<!-- FACEBOOK -->
 <div id="fb" class="page hidden">
   <h2 class="text-blue-600 font-bold mb-3">Facebook 🟦</h2>
 
   <div class="border rounded-xl overflow-hidden bg-white shadow-sm">
 
-    <!-- HEADER -->
     <div class="flex items-center gap-3 p-3">
       <img src="pp fb rafa.jpg"
           class="w-12 h-12 rounded-full object-cover">
@@ -125,26 +115,22 @@
       </div>
     </div>
 
-    <!-- CAPTION -->
     <div class="px-3 pb-3 text-gray-800">
       🎉 Happy Birthday Rafa Hylmi Azzami 🎂<br>
       Happy lvl up jadii 19 tahun bwahahaha~
     </div>
 
-    <!-- FOTO POST -->
     <img src="foto ikea 2.jpg" class="w-full object-cover">
 
-    <!-- FOOTER INFO -->
     <div class="px-3 pt-2 text-sm text-gray-500 flex justify-between items-center">
       <div id="fbReactions" class="flex items-center gap-1">
-  <!-- reaction akan muncul satu-satu lewat JS -->
+
 </div>
       <div class="text-xs">
         41 komentar · 38 Kali dibagikan · 22 rb Tayangan
       </div>
     </div>
 
-    <!-- ACTION BUTTON -->
     <div class="border-t mt-2 flex justify-around text-gray-600 text-sm font-medium">
       <button class="flex gap-1 py-2 w-full justify-center hover:bg-gray-100">👍 Suka</button>
       <button class="flex gap-1 py-2 w-full justify-center hover:bg-gray-100">💬 Komentari</button>
@@ -154,14 +140,11 @@
   </div>
 </div>
 
-<!-- ================= INSTAGRAM ================= -->
 <div id="ig"
      class="page hidden h-[600px] max-w-md mx-auto bg-white rounded-2xl shadow flex flex-col overflow-hidden">
 
-  <!-- SCROLL AREA -->
   <div class="flex-1 overflow-y-auto">
 
-    <!-- PROFILE HEADER -->
     <div class="px-4 pt-4 pb-3">
       <div class="flex items-center gap-4">
         <img src="PP ig rafa.jpg"
@@ -184,7 +167,6 @@
         <b class="text-gray-700">moullzz7</b> + 53 lainnya
       </div>
 
-      <!-- BUTTON -->
       <div class="flex gap-2 mt-4">
         <button
           class="flex-1 bg-gray-200 text-gray-800 py-2 rounded-full font-medium">
@@ -197,7 +179,6 @@
       </div>
     </div>
 
-    <!-- GRID FOTO -->
     <div class="grid grid-cols-3 gap-[2px] bg-gray-200">
       <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 2.jpg">
       <img class="aspect-square object-cover hover:opacity-80 transition" src="foto ikea 3.jpg">
@@ -222,17 +203,13 @@
   </div>
 </div>
 
-<!-- ================= SPOTIFY ================= -->
 <div id="sp" class="page hidden w-full bg-gradient-to-b from-emerald-700 to-black text-white rounded-3xl overflow-hidden">
 
-  <!-- HEADER -->
   <div class="p-4 flex gap-4 items-center">
-    <!-- COVER PLAYLIST -->
     <div class="w-28 aspect-square rounded-2xl overflow-hidden bg-emerald-600 shadow-lg flex items-center justify-center">
       <img src="The Beatles.jpg" class="w-full h-full object-cover">
     </div>
 
-    <!-- INFO -->
     <div>
       <p class="text-xs tracking-widest text-white/80">PLAYLIST</p>
       <h1 class="text-2xl font-extrabold leading-tight mt-1">
@@ -244,7 +221,6 @@
     </div>
   </div>
 
-  <!-- CONTROL -->
   <div class="px-4 pb-3 flex items-center gap-4">
     <button onclick="playSong(0)"
       class="bg-green-400 text-black w-12 h-12 rounded-2xl flex items-center justify-center text-xl shadow-lg">
@@ -253,10 +229,8 @@
     <span class="text-sm text-white/70">Putar semua</span>
   </div>
 
-  <!-- LIST LAGU -->
   <div class="px-4 pb-6 space-y-2 max-h-[55vh] overflow-y-auto">
 
-    <!-- ITEM -->
     <div onclick="playSong(0)"
       class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-white/10 transition cursor-pointer">
       <span class="w-4 text-sm text-white/50">1</span>
@@ -292,18 +266,15 @@
 
   </div>
 
-  <!-- AUDIO -->
   <audio id="audioPlayer"></audio>
 
 </div>
 
-<!-- ================= VS CODE ================= -->
 <div id="vs"
      class="page hidden h-[500px] max-w-md mx-auto
             bg-white rounded-2xl shadow
             flex flex-col overflow-hidden">
 
-  <!-- HEADER -->
   <div class="px-5 py-4 border-b">
     <p class="text-sm text-gray-400">Pesan Penting</p>
     <h2 class="text-lg font-semibold text-red-800">
@@ -311,7 +282,6 @@
     </h2>
   </div>
 
-  <!-- CONTENT -->
   <div class="flex-1 overflow-y-auto px-5 py-4 text-gray-700 leading-relaxed space-y-4 text-sm">
 
     <p>
@@ -359,7 +329,6 @@
 </div>
 
 <script>
-/* ===== PAGE SWITCH ===== */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
 
@@ -376,7 +345,6 @@ function unlockPhone() {
   showPage("fb");
 }
 
-// INI SANDI NYA
 const correctPin = "1111"; //
 
 function checkPin() {
@@ -392,7 +360,6 @@ function checkPin() {
   }
 }
 
-/* ===== WHATSAPP TYPING EFFECT ===== */
 const waMessages = [
   { text: "HOLA BUB !", from: "left" },
   { text: "ya?", from: "right" },
@@ -503,3 +470,4 @@ function playSong(index) {
 
 </body>
 </html>
+
